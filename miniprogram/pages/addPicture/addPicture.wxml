@@ -1,0 +1,72 @@
+<!--miniprogram/pages/addPicture/addPicture.wxml-->
+<view class="page-body">
+
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader">
+        <view class="weui-uploader__hd">
+          <view class="weui-uploader__title">此刻想留住的瞬间</view>
+          <view class="weui-uploader__info">
+            <view>
+              {{pics.length}}/9
+            </view>
+          </view>
+        </view>
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files">
+            <block wx:for="{{pics}}" wx:for-item="image">
+              <view class="weui-uploader__file">
+                <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage" mode='aspectFill'></image>
+              </view>
+            </block>
+          </view>
+          <!-- isShow 这个是判断是否进行触发点隐藏操作 -->
+          <view class="weui-uploader__input-box {{isShow?'true':'hideTrue'}}">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <form bindsubmit="doUpload">
+      <view class="page-section-title">想写的文字</view>
+      <view class="textarea-wrp">
+        <textarea bindblur="bindTextAreaBlur" auto-height auto-focus="true" value="{{content}}" />
+      </view>
+      <view class="page-section-title">想说的话</view>
+      <view class="page-section-title">
+        <view class='box1'>
+          <image class='tiny' src='{{recordImg}}'
+            bindtap='doPlay'
+          ></image>
+        </view>
+        <!-- <view class='box1'>
+          <image class="tiny" src="../../images/play.png"/>
+        </view>
+        <view class='box1'>
+          <image class="tiny" src="../../images/hold.png"/>
+        </view>
+        <view class='box1'>
+          <image class="tiny" src="../../images/stop.png"/>
+        </view> -->
+        <view class='btn3'>
+          <button 
+          bindtouchstart='touchStart'
+          bindtouchend='touchEnd'
+          bindlongpress='doRecord'>按住说话</button>
+        </view>
+        
+      </view>
+      <view class='prog'>
+        <progress percent='{{progress*5/3}}'/>
+        <!-- <text>{{progress}}秒</text> -->
+      </view>
+      <button class='btn2' form-type="submit">
+        提交发布
+      </button>
+    </form>
+  </view>
+
+</view>

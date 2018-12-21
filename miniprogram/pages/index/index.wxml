@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view>
+      <text>你好，{{userInfo.nickName}}</text>
+    </view>
+  </view>
+
+
+  <!-- 图片 -->
+  <view class="uploader">
+    <view class="uploader-container" wx:if="{{imgUrl}}">
+      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFill"></image>
+    </view>
+  </view>
+
+<!--文字描述-->
+<view class='uploader'>
+  <view class='uploader-container'>
+    <text class='desc-text'>人生若只如初见,何事秋风悲画扇\n等闲变却故人心,却道故人心易变</text>
+  </view>
+</view>
+
+  <view class="uploader">
+    <view class='uploader-container'>
+        <text>
+          作者：Mr.Elephent
+          2018年12月15日
+          继续开发中...
+        </text>
+    </view>
+  </view>
+
+</view>

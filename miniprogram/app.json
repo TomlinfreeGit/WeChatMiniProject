@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addPicture/addPicture",
+    "pages/showPicture/showPicture",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "Tom的小程序",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": true
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/index.png",
+        "iconPath": "images/index.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/add.png",
+        "iconPath": "images/add.png",
+        "pagePath": "pages/addPicture/addPicture",
+        "text": "记录此刻"
+      },
+      {
+        "selectedIconPath": "images/show.png",
+        "iconPath": "images/show.png",
+        "pagePath": "pages/showPicture/showPicture",
+        "text": "流光逸影"
+      }
+    ]
+  },
+  "cloud": true
+}

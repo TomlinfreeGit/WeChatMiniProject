@@ -1,0 +1,51 @@
+<view class="page-body">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <block wx:for="{{queryResult}}" wx:for-item="result" wx:for-index="idx">
+        <view class="weui-uploader">
+          <view class="userinfo">
+            <button 
+              class="userinfo-avatar"
+              style="background-image: url({{result.userInfo.avatarUrl}})"
+            ></button>
+            <view>
+              {{result.userInfo.nickName}}
+            </view>
+          </view>
+          <view class="weui-uploader__hd">
+            <view class="weui-uploader__title">{{result.text}}</view>
+          </view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files">
+              <block wx:for="{{result.fileIDs}}" wx:for-item="image">
+                <view class="weui-uploader__file">
+                  <image class="weui-uploader__img" src="{{image.tempFileURL}}" data-src="{{image.tempFileURL}}" bindtap="previewImage" mode='aspectFill'></image>
+                </view>
+              </block>
+            </view>
+          </view>
+          <view class="weui-uploader__hd">
+            <view class="weui-uploader__info">{{result.createTime}}</view>
+          </view>
+          
+          <view data-record="{{result.record}}" bindtap='doPlay' 
+          wx:if="{{result.record[0]}}">
+            <view wx:if="{{onPlayCSS==idx}}">
+              <button class='onPlayCSS'>播放语音</button>
+            </view>
+            <view wx:else>
+              <button>播放语音</button>
+            </view>
+          </view>
+          
+          <view class="delete_info">
+            <view data-index="{{result._id}}" bindtap='doDelete' 
+            wx:if="{{result.userInfo.nickName==userInfo.nickName}}">
+              <image class="tiny" src="../../images/delete.png"/>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
